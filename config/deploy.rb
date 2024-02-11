@@ -41,7 +41,7 @@ end
 # Put any custom commands you need to run at setup
 # All paths in `shared_dirs` and `shared_paths` will be created on their own.
 task :setup do
-
+   
   in_path(fetch(:shared_path)) do
 
     command %[mkdir -p config]
@@ -59,6 +59,7 @@ task :setup do
     #path_secrets_yml = "config/secrets.yml"
     #secrets_yml = %[production:\n  secret_key_base:\n    #{`bundle exec rake credentials`.strip}]
     #command %[test -e #{path_secrets_yml} || echo "#{secrets_yml}" > #{path_secrets_yml}]
+  
     
     # Remove others-permission for config directory
     command %[chmod -R o-rwx config]
@@ -86,7 +87,7 @@ task :deploy do
   end
 
   # you can use `run :local` to run tasks on local machine before of after the deploy scripts
-  # run(:local){ say 'done' }
+  # run :local){ say 'done' }
 end
 
 # For help in making your deploy script, see the Mina documentation:
